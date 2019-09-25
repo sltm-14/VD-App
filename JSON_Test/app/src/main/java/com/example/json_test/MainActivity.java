@@ -14,6 +14,9 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -84,7 +87,16 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
-            Log.i("Website content", result);
+
+            try {
+                JSONObject jsonObject = new JSONObject(result);
+                String weatherInfo    = jsonObject.getString("list");
+                Log.i("Weather content", weatherInfo);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+
         }
     }
 
