@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -92,6 +93,23 @@ public class MainActivity extends AppCompatActivity {
                 JSONObject jsonObject = new JSONObject(result);
                 String weatherInfo    = jsonObject.getString("list");
                 Log.i("Weather content", weatherInfo);
+
+                JSONArray arr = new JSONArray(weatherInfo);
+
+                for (int i = 0; i < arr.length();i++){
+                    JSONObject jsonCoord = arr.getJSONObject(i);
+                    String coordInfo = jsonCoord.getString("coord");
+                    Log.i("Coord",coordInfo);
+
+                    JSONArray arrCoord = new JSONArray(coordInfo);
+
+                    for (int x = 0; x < arr.length();x++) {
+                        JSONObject jsonLat = arrCoord.getJSONObject(x);
+                        String latInfo = jsonLat.getString("lat");
+                        Log.i("Lat", latInfo);
+                    }
+                }
+
             } catch (JSONException e) {
                 e.printStackTrace();
             }
