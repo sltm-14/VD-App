@@ -1,6 +1,4 @@
-package com.example.vd_app;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.multiple_activities;import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -17,6 +15,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,6 +26,9 @@ public class MainActivity extends AppCompatActivity {
 
         DownloadTask task = new DownloadTask();
         task.execute("http://papvidadigital-test.com/api");
+
+
+
 
     }
 
@@ -69,24 +71,30 @@ public class MainActivity extends AppCompatActivity {
             try {
                 JSONArray arr = new JSONArray(result);
 
-                String[] nodeId  = new String[50];
-                String[] nodeLon = new String[50];
-                String[] nodeLat = new String[50];
+                ArrayList<String> nodeId = new ArrayList<>();
+                ArrayList<Double> nodeLon = new ArrayList<>();
+                ArrayList<Double> nodeLat = new ArrayList<>();
 
                 for (int i = 0; i < arr.length();i++){
                     JSONObject jsonPart = arr.getJSONObject(i);
 
-                    nodeId[i] = jsonPart.getString("id");
-                    Log.i("NODE " + i + " id",nodeId[i]);
+                    nodeId.add (jsonPart.getString("id"));
+                    Log.i("NODE " + i + " id",nodeId.get(i));
 
-                    nodeLon[i] = jsonPart.getString("longitud");
-                    Log.i("NODE " + i + " lon",nodeLon[i]);
+                    nodeLon.add (jsonPart.getDouble("longitud"));
+                    Log.i("NODE " + i + " lon",nodeLon.get(i).toString());
 
-                    nodeLat[i] = jsonPart.getString("latitud");
-                    Log.i("NODE " + i + " lat",nodeLat[i]);
+                    nodeLat.add (jsonPart.getDouble("latitud"));
+                    Log.i("NODE " + i + " lat",nodeLat.get(i).toString());
                 }
 
                 Intent intent = new Intent(getApplicationContext(),SecondActivity.class);
+
+                intent.putExtra("nodes_id",nodeId);
+                intent.putExtra("nodes_lon",nodeLon);
+                intent.putExtra("nodes_lat",nodeLat);
+                intent.putExtra("nodes_len", arr.length());
+
                 startActivity(intent);
 
             } catch (JSONException e) {
@@ -97,3 +105,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
 }
+
+
+
+
+

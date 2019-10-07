@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">multiple_activities</string>
+    <string name="title_activity_second">Map</string>
+</resources>
