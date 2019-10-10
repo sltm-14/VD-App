@@ -27,9 +27,6 @@ public class MainActivity extends AppCompatActivity {
         DownloadTask task = new DownloadTask();
         task.execute("http://papvidadigital-test.com/api");
 
-
-
-
     }
 
     public class DownloadTask extends AsyncTask<String,Void,String> {
@@ -71,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
             try {
                 JSONArray arr = new JSONArray(result);
 
-                ArrayList<String> nodeId = new ArrayList<>();
+                ArrayList<String> nodeId  = new ArrayList<>();
                 ArrayList<Double> nodeLon = new ArrayList<>();
                 ArrayList<Double> nodeLat = new ArrayList<>();
 
@@ -88,14 +85,14 @@ public class MainActivity extends AppCompatActivity {
                     Log.i("NODE " + i + " lat",nodeLat.get(i).toString());
                 }
 
-                Intent intent = new Intent(getApplicationContext(),SecondActivity.class);
+                Intent intentToSecondAct = new Intent(getApplicationContext(),SecondActivity.class);
 
-                intent.putExtra("nodes_id",nodeId);
-                intent.putExtra("nodes_lon",nodeLon);
-                intent.putExtra("nodes_lat",nodeLat);
-                intent.putExtra("nodes_len", arr.length());
+                intentToSecondAct.putExtra("nodes_id",  nodeId);
+                intentToSecondAct.putExtra("nodes_lon", nodeLon);
+                intentToSecondAct.putExtra("nodes_lat", nodeLat);
+                intentToSecondAct.putExtra("nodes_len", arr.length());
 
-                startActivity(intent);
+                startActivity(intentToSecondAct);
 
             } catch (JSONException e) {
                 e.printStackTrace();
