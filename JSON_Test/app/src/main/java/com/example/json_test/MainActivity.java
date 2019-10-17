@@ -45,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
 
         DownloadTask task = new DownloadTask();
         task.execute("https://samples.openweathermap.org/data/2.5/find?lat=55.5&lon=37.5&cnt=10&appid=b6907d289e10d714a6e88b30761fae22");
+
+
     }
     //AsyncTask allows us to run a task on the background thread
     public class DownloadTask extends AsyncTask<String,Void,String>{
@@ -92,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
             try {
                 JSONObject jsonObject = new JSONObject(result);
                 String weatherInfo    = jsonObject.getString("list");
-                Log.i("Weather content", weatherInfo);
+                Log.i("WEATHER CONTENT", weatherInfo);
 
                 JSONArray arr = new JSONArray(weatherInfo);
 
@@ -101,13 +103,6 @@ public class MainActivity extends AppCompatActivity {
                     String coordInfo = jsonCoord.getString("coord");
                     Log.i("Coord",coordInfo);
 
-                    JSONArray arrCoord = new JSONArray(coordInfo);
-
-                    for (int x = 0; x < arr.length();x++) {
-                        JSONObject jsonLat = arrCoord.getJSONObject(x);
-                        String latInfo = jsonLat.getString("lat");
-                        Log.i("Lat", latInfo);
-                    }
                 }
 
             } catch (JSONException e) {

@@ -39,7 +39,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        mMap.setMapType(GoogleMap.MAP_TYPE_);
+        mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
 
         /* Add a marker in Primavera - Node 1 */
         LatLng primaveraNodo_1 = new LatLng(20.580407, -103.511447);
