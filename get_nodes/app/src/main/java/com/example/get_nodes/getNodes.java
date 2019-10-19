@@ -1,4 +1,4 @@
-package com.example.vidadigital;
+package com.example.get_nodes;
 
 import android.os.AsyncTask;
 import android.util.Log;
@@ -16,13 +16,14 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
-public class FetchData extends AsyncTask<Void,Void,Void> {
+public class getNodes extends AsyncTask<Void, Void, ArrayList<ArrayList>> {
 
-    String data ="";
-    String dataParsed = "";
+    String data = "";
 
     @Override
-    protected Void doInBackground(Void... voids) {
+    protected ArrayList<ArrayList> doInBackground(Void... voids) {
+
+        ArrayList<ArrayList> nodes_info   = new ArrayList<>();
 
         ArrayList<String> nodeId  = new ArrayList<>();
         ArrayList<Double> nodeLon = new ArrayList<>();
@@ -51,14 +52,18 @@ public class FetchData extends AsyncTask<Void,Void,Void> {
                 JSONObject jsonPart = arr.getJSONObject(i);
 
                 nodeId.add (jsonPart.getString("id"));
-                Log.i("NODE " + i + " id",nodeId.get(i));
+                Log.i("VD-NODE " + i + " id",nodeId.get(i));
 
                 nodeLon.add (jsonPart.getDouble("longitud"));
-                Log.i("NODE " + i + " lon",nodeLon.get(i).toString());
+                Log.i("VD-NODE " + i + " lon",nodeLon.get(i).toString());
 
                 nodeLat.add (jsonPart.getDouble("latitud"));
-                Log.i("NODE " + i + " lat",nodeLat.get(i).toString());
+                Log.i("VD-NODE " + i + " lat",nodeLat.get(i).toString());
             }
+
+            nodes_info.add (nodeId);
+            nodes_info.add (nodeLon);
+            nodes_info.add (nodeLat);
 
         } catch (MalformedURLException e) {
             e.printStackTrace();
@@ -67,12 +72,8 @@ public class FetchData extends AsyncTask<Void,Void,Void> {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
-        return null;
+        return nodes_info;
     }
 
-    @Override
-    protected void onPostExecute(Void aVoid) {
-        super.onPostExecute(aVoid);
-    }
+
 }
