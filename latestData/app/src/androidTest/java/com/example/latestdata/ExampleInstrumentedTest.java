@@ -1,4 +1,4 @@
-package com.example.nodeinfo;
+package com.example.latestdata;
 
 import android.content.Context;
 
@@ -22,6 +22,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
 
-        assertEquals("com.example.nodeinfo", appContext.getPackageName());
+        assertEquals("com.example.latestdata", appContext.getPackageName());
     }
 }

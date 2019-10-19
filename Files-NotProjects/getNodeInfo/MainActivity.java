@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ArrayList<ArrayList> node_info;
+        ArrayList<ArrayList> node_info   = new ArrayList<>();
         ArrayList<String> attribute_vals = new ArrayList<>();
 
         getNodeInfo process = new getNodeInfo();

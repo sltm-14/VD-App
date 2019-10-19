@@ -1,4 +1,4 @@
-package com.example.nodeinfo;
+package com.example.latestdata;
 
 import android.os.AsyncTask;
 import android.util.Log;
@@ -16,23 +16,21 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
-public class getNodeInfo extends AsyncTask<String, Void, ArrayList<ArrayList>> {
+public class getLatestData extends AsyncTask< String, Void, ArrayList<String> > {
     String exce = "EXCE";
     String data = "";
     String dataParsed = "";
 
     @Override
-    protected  ArrayList<ArrayList> doInBackground(String... node) {
+    protected  ArrayList<String> doInBackground(String... node) {
 
         /* Listas para los datos que pueden -o no- tener los nodos */
 
-        ArrayList<String> node_data       = new ArrayList<>();
-        ArrayList<String> node_fecha      = new ArrayList<>();
+        String node_data  = "";
+        String node_fecha = "";
+        ArrayList<String> node_aux   = new ArrayList<>();
 
-
-        ArrayList<ArrayList> nodes_info   = new ArrayList<>();
-
-        ArrayList<String> val_names       = new ArrayList<String>(){
+        ArrayList<String> val_names  = new ArrayList<String>(){
             {
                 add("bat");  add("temp");  add("hum");  add("c02");  add("n02");
                 add("co");   add("o2");    add("tmps"); add("tmpi"); add("hums");
@@ -60,16 +58,15 @@ public class getNodeInfo extends AsyncTask<String, Void, ArrayList<ArrayList>> {
             }
 
             JSONArray arr = new JSONArray(data);
-            nodesLenght   = arr.length();
 
-            for (int i = 0; i < nodesLenght;i++){
-                JSONObject jsonPart = arr.getJSONObject(i);
+            nodesLenght   = arr.length() - 1;
 
-                node_data.add  (jsonPart.getString("data"));
-                node_fecha.add (jsonPart.getString("fecha_hora"));
+            JSONObject jsonPart = arr.getJSONObject(nodesLenght);
 
-                Log.i("VD-NODE " + i + " Fecha",node_fecha.get(i));
-            }
+            node_data  = (jsonPart.getString("data"));
+            node_fecha = (jsonPart.getString("fecha_hora"));
+
+            Log.i("VD-NODE " + nodesLenght + " Fecha",node_fecha);
 
         } catch (MalformedURLException e) {
             Log.i("EXCEPTION MAL",exce);
@@ -82,41 +79,28 @@ public class getNodeInfo extends AsyncTask<String, Void, ArrayList<ArrayList>> {
             e.printStackTrace();
         }
 
+        JSONObject jsonData  = null;
+
         for (int j = 0 ; j < val_names.size() ; j++) {
 
-            ArrayList<String> node_aux = new ArrayList<>();
-
-            for (int i = 0 ; i < nodesLenght ; i++) {
-
-                JSONObject jsonData  = null;
-
-                try {
-                    jsonData = new JSONObject(node_data.get(i));
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-
-                try {
-                    node_aux.add (jsonData.getString(val_names.get(j)));
-                } catch (JSONException e) {
-                    node_aux.add (" ");
-                    e.printStackTrace();
-                }
-
-                Log.i("VD-NODE " + i + " " + val_names.get(j) , node_aux.get(i));
-
+            try {
+                jsonData = new JSONObject(node_data);
+                node_aux.add (jsonData.getString(val_names.get(j)));
+            }
+            catch (JSONException e) {
+                node_aux.add (" ");
+                e.printStackTrace();
             }
 
-            nodes_info.add(node_aux);
+            Log.i("VD-NODE " + nodesLenght + " " + val_names.get(j) , node_aux.get(j));
 
         }
 
-
-        return nodes_info;
+        return node_aux;
     }
 
     @Override
-    protected void onPostExecute(ArrayList<ArrayList> arrayLists) {
-        super.onPostExecute(arrayLists);
+    protected void onPostExecute(ArrayList<String> strings) {
+        super.onPostExecute(strings);
     }
 }

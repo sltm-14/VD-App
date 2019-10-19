@@ -1,4 +1,4 @@
-package com.example.nodeinfo;
+package com.example.latestdata;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,21 +15,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ArrayList<ArrayList> node_info;
         ArrayList<String> attribute_vals = new ArrayList<>();
-
-        getNodeInfo process = new getNodeInfo();
+        getLatestData process            = new getLatestData();
 
         try {
-            node_info      = process.execute("A0").get();
-            attribute_vals = node_info.get(2);
-
+            attribute_vals      = process.execute("HM1").get();
+            Log.i("VD-NODE TEST",attribute_vals.get(1));
         } catch (ExecutionException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
-        Log.i("VD-NODE TEST",attribute_vals.get(0));
     }
 }

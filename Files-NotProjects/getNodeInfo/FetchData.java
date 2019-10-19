@@ -28,7 +28,7 @@ public class getNodeInfo extends AsyncTask<String, Void, ArrayList<ArrayList>> {
 
         ArrayList<String> node_data       = new ArrayList<>();
         ArrayList<String> node_fecha      = new ArrayList<>();
-
+        ArrayList<String> node_aux        = new ArrayList<>();
 
         ArrayList<ArrayList> nodes_info   = new ArrayList<>();
 
@@ -65,9 +65,9 @@ public class getNodeInfo extends AsyncTask<String, Void, ArrayList<ArrayList>> {
             for (int i = 0; i < nodesLenght;i++){
                 JSONObject jsonPart = arr.getJSONObject(i);
 
-                node_data.add  (jsonPart.getString("data"));
-                node_fecha.add (jsonPart.getString("fecha_hora"));
+                node_data.add (jsonPart.getString("data"));
 
+                node_fecha.add (jsonPart.getString("fecha_hora"));
                 Log.i("VD-NODE " + i + " Fecha",node_fecha.get(i));
             }
 
@@ -84,11 +84,9 @@ public class getNodeInfo extends AsyncTask<String, Void, ArrayList<ArrayList>> {
 
         for (int j = 0 ; j < val_names.size() ; j++) {
 
-            ArrayList<String> node_aux = new ArrayList<>();
-
             for (int i = 0 ; i < nodesLenght ; i++) {
 
-                JSONObject jsonData  = null;
+                JSONObject jsonData = null;
 
                 try {
                     jsonData = new JSONObject(node_data.get(i));
@@ -99,7 +97,7 @@ public class getNodeInfo extends AsyncTask<String, Void, ArrayList<ArrayList>> {
                 try {
                     node_aux.add (jsonData.getString(val_names.get(j)));
                 } catch (JSONException e) {
-                    node_aux.add (" ");
+                    node_aux.add ("NULL");
                     e.printStackTrace();
                 }
 
