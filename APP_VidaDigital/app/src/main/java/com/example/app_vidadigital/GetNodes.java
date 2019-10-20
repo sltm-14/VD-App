@@ -52,13 +52,13 @@ public class GetNodes extends AsyncTask<Void, Void, ArrayList<ArrayList>> {
                 JSONObject jsonPart = arr.getJSONObject(i);
 
                 nodeId.add (jsonPart.getString("id"));
-                Log.i("VD-NODE " + i + " id",nodeId.get(i));
+               // Log.i("VD-NODE " + i + " id",nodeId.get(i));
 
                 nodeLon.add (jsonPart.getDouble("longitud"));
-                Log.i("VD-NODE " + i + " lon",nodeLon.get(i).toString());
+               // Log.i("VD-NODE " + i + " lon",nodeLon.get(i).toString());
 
                 nodeLat.add (jsonPart.getDouble("latitud"));
-                Log.i("VD-NODE " + i + " lat",nodeLat.get(i).toString());
+               // Log.i("VD-NODE " + i + " lat",nodeLat.get(i).toString());
             }
 
             nodes_info.add (nodeId);

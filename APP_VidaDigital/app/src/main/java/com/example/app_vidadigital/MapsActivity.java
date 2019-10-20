@@ -2,6 +2,7 @@ package com.example.app_vidadigital;
 
 import androidx.fragment.app.FragmentActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -53,6 +54,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             mMap.setOnInfoWindowClickListener(this);
         }
 
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(vd_nodes_list.get(4), 11.0f));
+
     }
 
     @Override
@@ -62,8 +65,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     @Override
     public boolean onMarkerClick(Marker marker) {
-        
+
         Toast.makeText(this,"Click sobre el marcador " + marker.getTitle(), Toast.LENGTH_SHORT).show();
+
+        Intent intent = new Intent(getApplicationContext(),NodeInfoActivity.class);
+
+        intent.putExtra("node_id",  marker.getTitle());
+
+        startActivity(intent);
 
         return false;
     }

@@ -67,7 +67,7 @@ public class GetNodeData extends AsyncTask<String, Void, ArrayList<ArrayList>> {
                 node_data.add  (jsonPart.getString("data"));
                 node_fecha.add (jsonPart.getString("fecha_hora"));
 
-                Log.i("VD-NODE " + i + " Fecha",node_fecha.get(i));
+                //Log.i("VD-NODE " + i + " Fecha",node_fecha.get(i));
             }
 
         } catch (MalformedURLException e) {
@@ -102,7 +102,7 @@ public class GetNodeData extends AsyncTask<String, Void, ArrayList<ArrayList>> {
                     e.printStackTrace();
                 }
 
-                Log.i("VD-NODE " + i + " " + val_names.get(j) , node_aux.get(i));
+                //Log.i("VD-NODE " + i + " " + val_names.get(j) , node_aux.get(i));
 
             }
 

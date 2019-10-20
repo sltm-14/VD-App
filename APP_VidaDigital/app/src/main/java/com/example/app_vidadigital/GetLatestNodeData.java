@@ -65,16 +65,16 @@ public class GetLatestNodeData extends AsyncTask< String, Void, ArrayList<String
             node_data  = (jsonPart.getString("data"));
             node_fecha = (jsonPart.getString("fecha_hora"));
 
-            Log.i("VD-NODE " + nodesLenght + " Fecha",node_fecha);
+            //Log.i("VD-NODE " + nodesLenght + " Fecha",node_fecha);
 
         } catch (MalformedURLException e) {
-            Log.i("EXCEPTION MAL",exce);
+            //Log.i("EXCEPTION MAL",exce);
             e.printStackTrace();
         } catch (IOException e) {
-            Log.i("EXCEPTION IO",exce);
+            //Log.i("EXCEPTION IO",exce);
             e.printStackTrace();
         } catch (JSONException e) {
-            Log.i("EXCEPTION JSON",exce);
+            //.i("EXCEPTION JSON",exce);
             e.printStackTrace();
         }
 
@@ -91,7 +91,7 @@ public class GetLatestNodeData extends AsyncTask< String, Void, ArrayList<String
                 e.printStackTrace();
             }
 
-            Log.i("VD-NODE " + nodesLenght + " " + val_names.get(j) , node_aux.get(j));
+            //Log.i("VD-NODE " + nodesLenght + " " + val_names.get(j) , node_aux.get(j));
 
         }
 

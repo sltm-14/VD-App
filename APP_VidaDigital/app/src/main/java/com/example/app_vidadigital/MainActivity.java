@@ -44,13 +44,12 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = new Intent(getApplicationContext(),MapsActivity.class);
 
-        intent.putExtra("nodes_id",nodes_id);
-        intent.putExtra("nodes_lon",nodes_lon);
-        intent.putExtra("nodes_lat",nodes_lat);
+        intent.putExtra("nodes_id",  nodes_id);
+        intent.putExtra("nodes_lon", nodes_lon);
+        intent.putExtra("nodes_lat", nodes_lat);
         intent.putExtra("nodes_len", nodes_id.size());
 
         startActivity(intent);
-
 
     }
 }

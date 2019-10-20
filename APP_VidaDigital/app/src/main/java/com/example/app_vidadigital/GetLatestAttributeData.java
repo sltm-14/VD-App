@@ -62,13 +62,13 @@ public class GetLatestAttributeData extends AsyncTask<MainActivity.AttributesDat
                 node_data  = (jsonPart.getString("data"));
 
             } catch (MalformedURLException e) {
-                Log.i("EXCEPTION MAL",exce);
+                //Log.i("EXCEPTION MAL",exce);
                 e.printStackTrace();
             } catch (IOException e) {
-                Log.i("EXCEPTION IO",exce);
+                //Log.i("EXCEPTION IO",exce);
                 e.printStackTrace();
             } catch (JSONException e) {
-                Log.i("EXCEPTION JSON",exce);
+                //Log.i("EXCEPTION JSON",exce);
                 e.printStackTrace();
             }
 
@@ -83,7 +83,7 @@ public class GetLatestAttributeData extends AsyncTask<MainActivity.AttributesDat
                 e.printStackTrace();
             }
 
-            Log.i("VD-NODE " + nodesLenght + " " + node_list.get(i) + " " + node_attribute , node_aux.get(i));
+            //Log.i("VD-NODE " + nodesLenght + " " + node_list.get(i) + " " + node_attribute , node_aux.get(i));
 
         }
 
