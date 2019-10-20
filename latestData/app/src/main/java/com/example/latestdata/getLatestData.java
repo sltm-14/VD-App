@@ -19,7 +19,6 @@ import java.util.ArrayList;
 public class getLatestData extends AsyncTask< String, Void, ArrayList<String> > {
     String exce = "EXCE";
     String data = "";
-    String dataParsed = "";
 
     @Override
     protected  ArrayList<String> doInBackground(String... node) {

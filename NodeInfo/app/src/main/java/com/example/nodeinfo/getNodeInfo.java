@@ -26,12 +26,6 @@ public class getNodeInfo extends AsyncTask<String, Void, ArrayList<ArrayList>> {
 
         /* Listas para los datos que pueden -o no- tener los nodos */
 
-        ArrayList<String> node_data       = new ArrayList<>();
-        ArrayList<String> node_fecha      = new ArrayList<>();
-
-
-        ArrayList<ArrayList> nodes_info   = new ArrayList<>();
-
         ArrayList<String> val_names       = new ArrayList<String>(){
             {
                 add("bat");  add("temp");  add("hum");  add("c02");  add("n02");
@@ -39,6 +33,11 @@ public class getNodeInfo extends AsyncTask<String, Void, ArrayList<ArrayList>> {
                 add("ph");   add("orp");   add("do");   add("con");
             }
         };
+
+        ArrayList<String> node_data       = new ArrayList<>();
+        ArrayList<String> node_fecha      = new ArrayList<>();
+
+        ArrayList<ArrayList> nodes_info   = new ArrayList<>();
 
         int nodesLenght = 0;
 
@@ -108,9 +107,7 @@ public class getNodeInfo extends AsyncTask<String, Void, ArrayList<ArrayList>> {
             }
 
             nodes_info.add(node_aux);
-
         }
-
 
         return nodes_info;
     }
