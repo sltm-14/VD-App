@@ -1,4 +1,4 @@
-package com.example.getlatestattributedata;
+package com.example.app_vidadigital;
 
 import android.os.AsyncTask;
 import android.util.Log;
@@ -16,7 +16,9 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
-public class GetLatestAttributeData extends AsyncTask<MainActivity.AttributesData, Void, ArrayList<String> > {
+
+
+public class GetLatestAttributeData extends AsyncTask<MainActivity.AttributesData, Void, ArrayList<String>> {
     String exce = "EXCE";
 
     @Override

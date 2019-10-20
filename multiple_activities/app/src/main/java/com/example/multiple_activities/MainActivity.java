@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         DownloadTask task = new DownloadTask();
-        task.execute("http://papvidadigital-test.com/api");
+        task.execute("https://papvidadigital-test.com/api");
 
     }
 
