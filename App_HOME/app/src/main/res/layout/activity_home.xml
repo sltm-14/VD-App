@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F2EEC6"
+    tools:context=".MainActivity">
+
+
+
+    <androidx.cardview.widget.CardView
+        app:cardBackgroundColor="@android:color/transparent"
+        app:cardElevation="0dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp">
+
+        <androidx.cardview.widget.CardView
+
+            android:layout_width="300dp"
+            android:layout_height="140dp"
+            android:layout_gravity="center"
+            app:cardCornerRadius="10dp">
+
+            <RelativeLayout
+                android:layout_marginRight="100dp"
+                android:layout_width="320dp"
+                android:layout_height="140dp">
+
+                <ImageView
+                    android:id="@+id/creencias_image"
+                    android:src="@drawable/cake_grape"
+                    android:layout_width="350dp"
+                    android:layout_height="200dp"
+                    android:scaleType="centerCrop"/>
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <Button
+            android:id="@+id/creencias_btn"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="230dp"
+            android:layout_marginTop="45dp"
+            android:background="@drawable/home_btns"
+            android:textColor="#3B4F2F"
+            android:text="Creencias"
+            />
+
+    </androidx.cardview.widget.CardView>
+
+
+
+
+
+    <androidx.cardview.widget.CardView
+        app:cardBackgroundColor="@android:color/transparent"
+        app:cardElevation="0dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp">
+
+        <androidx.cardview.widget.CardView
+
+            android:layout_width="300dp"
+            android:layout_height="140dp"
+            android:layout_gravity="center"
+            app:cardCornerRadius="10dp">
+
+            <RelativeLayout
+                android:layout_marginRight="100dp"
+                android:layout_width="320dp"
+                android:layout_height="140dp">
+
+                <ImageView
+                    android:id="@+id/tecnica_image"
+                    android:src="@drawable/cake_peach"
+                    android:layout_width="350dp"
+                    android:layout_height="200dp"
+                    android:scaleType="centerCrop"/>
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <Button
+            android:id="@+id/tecnicas_btn"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="230dp"
+            android:layout_marginTop="45dp"
+            android:background="@drawable/home_btns"
+            android:textColor="#3B4F2F"
+            android:text="Técnica" />
+
+    </androidx.cardview.widget.CardView>
+
+
+
+
+
+    <androidx.cardview.widget.CardView
+        app:cardBackgroundColor="@android:color/transparent"
+        app:cardElevation="0dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp">
+
+        <androidx.cardview.widget.CardView
+
+            android:layout_width="300dp"
+            android:layout_height="140dp"
+            android:layout_gravity="center"
+            app:cardCornerRadius="10dp">
+
+            <RelativeLayout
+                android:layout_marginRight="100dp"
+                android:layout_width="320dp"
+                android:layout_height="140dp">
+
+                <ImageView
+                    android:id="@+id/nosotros_image"
+                    android:src="@drawable/tangerine_cake"
+                    android:layout_width="350dp"
+                    android:layout_height="200dp"
+                    android:scaleType="centerCrop"/>
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <Button
+            android:id="@+id/nosotros_btn"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="230dp"
+            android:layout_marginTop="45dp"
+            android:background="@drawable/home_btns"
+            android:textColor="#3B4F2F"
+            android:text="Nosotros" />
+
+    </androidx.cardview.widget.CardView>
+
+
+</LinearLayout>
