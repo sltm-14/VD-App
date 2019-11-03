@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
         lineDataSet2.setValueTextSize(10);
         lineDataSet2.setValueTextColor(Color.BLACK);
         lineDataSet2.enableDashedLine(8,16,4);
-        lineDataSet2.setMode(LineDataSet.Mode.CUBIC_BEZIER);
+        lineDataSet2.setMode(LineDataSet.Mode.LINEAR);
 
         ArrayList<ILineDataSet> dataSets = new ArrayList<ILineDataSet>();
         dataSets.add(lineDataSet1);
@@ -122,15 +122,15 @@ public class MainActivity extends AppCompatActivity {
         LineDataSet lineDataSet = new LineDataSet(lineEntries, "Line");
         lineDataSet.setAxisDependency(YAxis.AxisDependency.LEFT);
         lineDataSet.setHighlightEnabled(true);
-        lineDataSet.setLineWidth(3);
-        lineDataSet.setColor(Color.BLUE);
-        lineDataSet.setCircleColor(Color.RED);
-        lineDataSet.setCircleRadius(6);
-        lineDataSet.setCircleHoleRadius(3);
+        lineDataSet.setLineWidth(2);
+        lineDataSet.setColor(Color.rgb(154, 21, 142));
+        lineDataSet.setCircleColor(Color.YELLOW);
+        lineDataSet.setCircleRadius(2);
+        lineDataSet.setCircleHoleRadius(2);
         lineDataSet.setDrawHighlightIndicators(true);
         lineDataSet.setHighLightColor(Color.RED);
         lineDataSet.setValueTextSize(10);
-        lineDataSet.setValueTextColor(Color.BLACK);
+        lineDataSet.setValueTextColor(Color.WHITE);
 
         LineData lineData = new LineData(lineDataSet);
         lineChart.getXAxis().setPosition(XAxis.XAxisPosition.BOTH_SIDED);
